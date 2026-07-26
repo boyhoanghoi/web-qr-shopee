@@ -1,6 +1,6 @@
 @echo off
 chcp 65001 >nul
-title Web QR 12 Mau
+title Web QR 18 Mau
 
 cd /d "%~dp0"
 

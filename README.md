@@ -1,7 +1,7 @@
 # WEB TẠO QR VÀ GHÉP VÀO 12 MẪU
 
 Bản cập nhật gồm:
-- 12 mẫu (6 mẫu cũ + 6 mẫu mới).
+- 18 mẫu (6 mẫu cũ + 6 mẫu bổ sung + 6 mẫu mới nhất).
 - Tất cả template trong app đã xóa QR mặc định.
 - Chỉ khi nhập link và bấm tạo thì QR mới xuất hiện.
 - Nút tải ảnh bị khóa cho đến khi ảnh đã được tạo xong.
@@ -24,7 +24,7 @@ Hoặc trên Windows: nhấp đúp `CHAY_LOCAL_WINDOWS.bat`
 - Output Directory: `dist`
 
 ## Vị trí ảnh mẫu
-`public/templates/mau-1.png` đến `public/templates/mau-12.png`
+`public/templates/mau-1.png` đến `public/templates/mau-18.png`
 
 ## Tọa độ QR
 Nằm trong file `src/main.js` ở mảng `TEMPLATES`.

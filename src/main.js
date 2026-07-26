@@ -74,6 +74,42 @@ const TEMPLATES = [
     width: 1122, height: 1402,
     qr: { x: 147, y: 583, w: 234, h: 239 },
     pill: null
+  },
+  {
+    id: 13, name: "Mẫu 13 – Trắng xanh cam đơn giản", src: "/templates/mau-13.png",
+    width: 1122, height: 1402,
+    qr: { x: 164, y: 711, w: 171, h: 171 },
+    pill: null
+  },
+  {
+    id: 14, name: "Mẫu 14 – Xanh lá voucher mở thẳng", src: "/templates/mau-14.png",
+    width: 1122, height: 1402,
+    qr: { x: 149, y: 598, w: 242, h: 249 },
+    pill: null
+  },
+  {
+    id: 15, name: "Mẫu 15 – Xanh vàng 3 bước", src: "/templates/mau-15.png",
+    width: 1122, height: 1402,
+    qr: { x: 104, y: 689, w: 232, h: 232 },
+    pill: null
+  },
+  {
+    id: 16, name: "Mẫu 16 – Xanh ngọc 3 bước", src: "/templates/mau-16.png",
+    width: 1122, height: 1402,
+    qr: { x: 572, y: 465, w: 178, h: 187 },
+    pill: null
+  },
+  {
+    id: 17, name: "Mẫu 17 – Xanh trời cam nổi bật", src: "/templates/mau-17.png",
+    width: 1122, height: 1402,
+    qr: { x: 131, y: 606, w: 265, h: 271 },
+    pill: null
+  },
+  {
+    id: 18, name: "Mẫu 18 – Cam đen 3 bước", src: "/templates/mau-18.png",
+    width: 1122, height: 1402,
+    qr: { x: 583, y: 427, w: 175, h: 177 },
+    pill: null
   }
 ];
 
