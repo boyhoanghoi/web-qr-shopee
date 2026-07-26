@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Tạo mã QR từ đường link và ghép tự động vào 6 mẫu ảnh hướng dẫn."
+    />
+    <meta name="theme-color" content="#0b45c6" />
+    <title>Tạo ảnh QR từ đường link</title>
+  </head>
+
+  <body>
+    <main class="page-shell">
+      <header class="hero">
+        <div class="hero__badge">QR TEMPLATE</div>
+        <h1>Tạo ảnh QR từ đường link</h1>
+        <p>
+          Dán link, chọn một trong 6 mẫu và tải ảnh PNG hoàn chỉnh.
+          Toàn bộ quá trình được xử lý ngay trên trình duyệt.
+        </p>
+      </header>
+
+      <section class="app-layout">
+        <div class="control-panel">
+          <section class="panel">
+            <div class="panel-heading">
+              <span class="step-number">1</span>
+              <div>
+                <h2>Nhập đường link</h2>
+                <p>Mã QR sẽ chứa nguyên đường link bạn nhập.</p>
+              </div>
+            </div>
+
+            <label class="field-label" for="urlInput">Link cần chuyển thành QR</label>
+            <div class="url-row">
+              <input
+                id="urlInput"
+                class="url-input"
+                type="url"
+                inputmode="url"
+                autocomplete="url"
+                placeholder="https://s.shopee.vn/..."
+              />
+              <button id="pasteButton" class="secondary-button" type="button">
+                Dán
+              </button>
+            </div>
+
+            <div class="quick-options">
+              <label class="check-option">
+                <input id="replaceTextCheckbox" type="checkbox" checked />
+                <span>Thay luôn dòng link chữ trên ảnh</span>
+              </label>
+            </div>
+
+            <div id="urlMessage" class="message" aria-live="polite"></div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-heading">
+              <span class="step-number">2</span>
+              <div>
+                <h2>Chọn mẫu ảnh</h2>
+                <p>Bấm vào hình thu nhỏ để chọn mẫu muốn xuất.</p>
+              </div>
+            </div>
+
+            <div id="templateGrid" class="template-grid"></div>
+          </section>
+
+          <section class="panel action-panel">
+            <div class="panel-heading">
+              <span class="step-number">3</span>
+              <div>
+                <h2>Tạo và tải ảnh</h2>
+                <p>Ảnh được giữ nguyên kích thước gốc.</p>
+              </div>
+            </div>
+
+            <div class="action-buttons">
+              <button id="generateButton" class="primary-button" type="button">
+                Tạo ảnh ngay
+              </button>
+              <button id="downloadButton" class="download-button" type="button" disabled>
+                Tải ảnh PNG
+              </button>
+            </div>
+
+            <div id="statusMessage" class="status-message" aria-live="polite"></div>
+          </section>
+
+          <section class="privacy-note">
+            <strong>Riêng tư:</strong>
+            Link và ảnh kết quả không được gửi lên máy chủ. Trình duyệt của người
+            dùng tự tạo QR và ghép ảnh.
+          </section>
+        </div>
+
+        <aside class="preview-panel">
+          <div class="preview-heading">
+            <div>
+              <span class="eyebrow">XEM TRƯỚC</span>
+              <h2 id="previewTitle">Mẫu 1</h2>
+            </div>
+            <span id="imageSizeBadge" class="size-badge">1448 × 1086</span>
+          </div>
+
+          <div id="previewStage" class="preview-stage">
+            <canvas id="previewCanvas"></canvas>
+            <div id="loadingOverlay" class="loading-overlay hidden">
+              <div class="spinner"></div>
+              <span>Đang tạo ảnh...</span>
+            </div>
+          </div>
+
+          <p class="preview-help">
+            Mã QR chứa link đầy đủ. Khi link quá dài, dòng chữ trên ảnh có thể
+            được rút gọn bằng dấu “…”, nhưng QR vẫn giữ nguyên link.
+          </p>
+        </aside>
+      </section>
+
+      <footer>
+        Công cụ độc lập, không thuộc hoặc được tài trợ bởi Shopee.
+      </footer>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

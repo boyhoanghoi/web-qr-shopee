@@ -1,0 +1,22 @@
+DEPLOY NHANH LÊN VERCEL
+
+CÁCH 1 - GITHUB
+1. Tạo repository GitHub.
+2. Upload toàn bộ file trong thư mục này.
+3. Vào Vercel -> Add New -> Project.
+4. Import repository.
+5. Bấm Deploy.
+6. Không cần sửa Build Command và Output Directory.
+
+CÁCH 2 - VERCEL CLI
+1. npm install
+2. npm install -g vercel
+3. vercel
+4. vercel --prod
+
+CHẠY LOCAL
+1. Cài Node.js LTS.
+2. Nhấp đúp CHAY_LOCAL_WINDOWS.bat
+   hoặc chạy:
+   npm install
+   npm run dev
