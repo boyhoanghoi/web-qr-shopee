@@ -1,89 +1,79 @@
+
 import QRCode from "qrcode";
 import "./style.css";
 
-/*
-  TỌA ĐỘ ĐƯỢC ĐO THEO 6 ẢNH GỐC TRONG public/templates.
-  qr: vùng sẽ được thay bằng mã QR mới.
-  pill: vùng dòng link màu xanh bên dưới QR.
-*/
 const TEMPLATES = [
   {
-    id: 1,
-    name: "Mẫu 1 – Trung tâm nổi bật",
-    src: "/templates/mau-1.png",
-    width: 1448,
-    height: 1086,
-    qr: { x: 111, y: 404, w: 218, h: 218 },
-    pill: {
-      x: 61, y: 641, w: 324, h: 50,
-      colorStart: "#082b91",
-      colorEnd: "#0b55e9"
-    }
-  },
-  {
-    id: 2,
-    name: "Mẫu 2 – Phong cách truyện tranh",
-    src: "/templates/mau-2.png",
-    width: 1448,
-    height: 1086,
-    qr: { x: 141, y: 375, w: 220, h: 211 },
-    pill: {
-      x: 50, y: 613, w: 403, h: 46,
-      colorStart: "#052ab1",
-      colorEnd: "#075fe6"
-    }
-  },
-  {
-    id: 3,
-    name: "Mẫu 3 – Bố cục dọc",
-    src: "/templates/mau-3.png",
-    width: 1122,
-    height: 1402,
-    qr: { x: 689, y: 343, w: 266, h: 266 },
-    pill: {
-      x: 224, y: 399, w: 382, h: 42,
-      colorStart: "#0750e6",
-      colorEnd: "#0868f5"
-    }
-  },
-  {
-    id: 4,
-    name: "Mẫu 4 – Trắng xanh hiện đại",
-    src: "/templates/mau-4.png",
-    width: 1448,
-    height: 1086,
-    qr: { x: 130, y: 346, w: 253, h: 255 },
-    pill: {
-      x: 65, y: 636, w: 382, h: 45,
-      colorStart: "#0641c9",
-      colorEnd: "#0874ee"
-    }
-  },
-  {
-    id: 5,
-    name: "Mẫu 5 – Nhiều màu",
-    src: "/templates/mau-5.png",
-    width: 1448,
-    height: 1086,
-    qr: { x: 128, y: 318, w: 263, h: 266 },
-    pill: {
-      x: 94, y: 596, w: 329, h: 39,
-      colorStart: "#071c9f",
-      colorEnd: "#0d48dd"
-    }
-  },
-  {
-    id: 6,
-    name: "Mẫu 6 – Xanh vàng tối giản",
-    src: "/templates/mau-6.png",
-    width: 1448,
-    height: 1086,
+    id: 1, name: "Mẫu 1 – Trắng xanh hiện đại", src: "/templates/mau-1.png",
+    width: 1448, height: 1086,
     qr: { x: 155, y: 352, w: 230, h: 231 },
-    pill: {
-      x: 85, y: 613, w: 365, h: 38,
-      colorStart: "#041a47",
-      colorEnd: "#0a326d"
-    }
+    pill: { x: 85, y: 613, w: 365, h: 38, colorStart: "#041a47", colorEnd: "#0a326d" }
+  },
+  {
+    id: 2, name: "Mẫu 2 – Truyện tranh cam đỏ", src: "/templates/mau-2.png",
+    width: 1448, height: 1086,
+    qr: { x: 127, y: 318, w: 264, h: 266 },
+    pill: { x: 94, y: 596, w: 329, h: 39, colorStart: "#071c9f", colorEnd: "#0d48dd" }
+  },
+  {
+    id: 3, name: "Mẫu 3 – Xanh cam tối giản", src: "/templates/mau-3.png",
+    width: 1448, height: 1086,
+    qr: { x: 130, y: 346, w: 253, h: 255 },
+    pill: { x: 65, y: 636, w: 382, h: 45, colorStart: "#0641c9", colorEnd: "#0874ee" }
+  },
+  {
+    id: 4, name: "Mẫu 4 – Bố cục dọc", src: "/templates/mau-4.png",
+    width: 1122, height: 1402,
+    qr: { x: 689, y: 343, w: 266, h: 266 },
+    pill: { x: 224, y: 399, w: 382, h: 42, colorStart: "#0750e6", colorEnd: "#0868f5" }
+  },
+  {
+    id: 5, name: "Mẫu 5 – Nhiều màu nổi bật", src: "/templates/mau-5.png",
+    width: 1448, height: 1086,
+    qr: { x: 141, y: 375, w: 220, h: 211 },
+    pill: { x: 50, y: 613, w: 403, h: 46, colorStart: "#052ab1", colorEnd: "#075fe6" }
+  },
+  {
+    id: 6, name: "Mẫu 6 – Trung tâm nổi bật", src: "/templates/mau-6.png",
+    width: 1448, height: 1086,
+    qr: { x: 111, y: 404, w: 218, h: 218 },
+    pill: { x: 61, y: 641, w: 324, h: 50, colorStart: "#082b91", colorEnd: "#0b55e9" }
+  },
+  {
+    id: 7, name: "Mẫu 7 – Neon tím", src: "/templates/mau-7.png",
+    width: 1122, height: 1402,
+    qr: { x: 159, y: 614, w: 287, h: 287 },
+    pill: null
+  },
+  {
+    id: 8, name: "Mẫu 8 – Comic vàng đỏ", src: "/templates/mau-8.png",
+    width: 1122, height: 1402,
+    qr: { x: 168, y: 636, w: 238, h: 236 },
+    pill: null
+  },
+  {
+    id: 9, name: "Mẫu 9 – Xanh lá tinh gọn", src: "/templates/mau-9.png",
+    width: 1122, height: 1402,
+    qr: { x: 137, y: 564, w: 250, h: 255 },
+    pill: null
+  },
+  {
+    id: 10, name: "Mẫu 10 – Hồng pastel", src: "/templates/mau-10.png",
+    width: 1122, height: 1402,
+    qr: { x: 140, y: 600, w: 188, h: 189 },
+    pill: null
+  },
+  {
+    id: 11, name: "Mẫu 11 – Xanh dương sáng", src: "/templates/mau-11.png",
+    width: 1122, height: 1402,
+    qr: { x: 119, y: 639, w: 197, h: 198 },
+    pill: null
+  },
+  {
+    id: 12, name: "Mẫu 12 – Xanh đêm vàng", src: "/templates/mau-12.png",
+    width: 1122, height: 1402,
+    qr: { x: 147, y: 583, w: 234, h: 239 },
+    pill: null
   }
 ];
 
@@ -122,44 +112,26 @@ function setMessage(element, text = "", type = "") {
 
 function normalizeUrl(rawValue) {
   const trimmed = rawValue.trim();
-
-  if (!trimmed) {
-    throw new Error("Bạn chưa nhập đường link.");
-  }
-
+  if (!trimmed) throw new Error("Bạn chưa nhập đường link.");
   let candidate = trimmed;
-
-  // Hỗ trợ trường hợp người dùng dán link thiếu https://
-  if (!/^https?:\/\//i.test(candidate)) {
-    candidate = `https://${candidate}`;
-  }
-
+  if (!/^https?:\/\//i.test(candidate)) candidate = `https://${candidate}`;
   let parsed;
-  try {
-    parsed = new URL(candidate);
-  } catch {
-    throw new Error("Đường link không hợp lệ.");
-  }
+  try { parsed = new URL(candidate); }
+  catch { throw new Error("Đường link không hợp lệ."); }
 
   if (!["http:", "https:"].includes(parsed.protocol)) {
     throw new Error("Chỉ hỗ trợ đường link bắt đầu bằng http:// hoặc https://.");
   }
-
   return parsed.href;
 }
 
 function isShopeeUrl(url) {
-  try {
-    const host = new URL(url).hostname.toLowerCase();
-    return host.includes("shopee.");
-  } catch {
-    return false;
-  }
+  try { return new URL(url).hostname.toLowerCase().includes("shopee."); }
+  catch { return false; }
 }
 
 function createTemplateCards() {
   elements.templateGrid.innerHTML = "";
-
   for (const template of TEMPLATES) {
     const button = document.createElement("button");
     button.type = "button";
@@ -169,12 +141,7 @@ function createTemplateCards() {
 
     button.innerHTML = `
       <div class="template-card__image-wrap">
-        <img
-          src="${template.src}"
-          alt="${template.name}"
-          loading="lazy"
-          draggable="false"
-        />
+        <img src="${template.src}" alt="${template.name}" loading="lazy" draggable="false" />
         <span class="template-card__check">✓</span>
       </div>
       <div class="template-card__meta">
@@ -188,7 +155,6 @@ function createTemplateCards() {
       state.lastGeneratedBlob = null;
       state.lastGeneratedFilename = null;
       elements.downloadButton.disabled = true;
-
       updateSelectedCard();
       updatePreviewHeader();
       setMessage(elements.statusMessage);
@@ -197,14 +163,12 @@ function createTemplateCards() {
 
     elements.templateGrid.appendChild(button);
   }
-
   updateSelectedCard();
 }
 
 function updateSelectedCard() {
   document.querySelectorAll(".template-card").forEach((card) => {
-    const isSelected =
-      Number(card.dataset.templateId) === state.selectedTemplateId;
+    const isSelected = Number(card.dataset.templateId) === state.selectedTemplateId;
     card.classList.toggle("selected", isSelected);
     card.setAttribute("aria-pressed", String(isSelected));
   });
@@ -217,19 +181,13 @@ function updatePreviewHeader() {
 }
 
 function loadImage(src) {
-  if (state.imageCache.has(src)) {
-    return state.imageCache.get(src);
-  }
+  if (state.imageCache.has(src)) return state.imageCache.get(src);
 
   const promise = new Promise((resolve, reject) => {
     const image = new Image();
     image.decoding = "async";
-
     image.onload = () => resolve(image);
-    image.onerror = () => reject(
-      new Error(`Không tải được ảnh mẫu: ${src}`)
-    );
-
+    image.onerror = () => reject(new Error(`Không tải được ảnh mẫu: ${src}`));
     image.src = src;
   });
 
@@ -243,11 +201,13 @@ async function showBaseTemplate(template) {
     const image = await loadImage(template.src);
     const canvas = elements.previewCanvas;
     const context = canvas.getContext("2d");
-
     canvas.width = image.naturalWidth;
     canvas.height = image.naturalHeight;
     context.clearRect(0, 0, canvas.width, canvas.height);
     context.drawImage(image, 0, 0);
+
+    // Gợi ý mờ tại vùng QR để người dùng biết vùng này sẽ có QR sau khi tạo
+    drawPlaceholder(context, template.qr);
   } catch (error) {
     setMessage(elements.statusMessage, error.message, "error");
   } finally {
@@ -255,20 +215,30 @@ async function showBaseTemplate(template) {
   }
 }
 
+function drawPlaceholder(context, qr) {
+  context.save();
+  context.setLineDash([10, 8]);
+  context.strokeStyle = "rgba(88, 108, 153, 0.55)";
+  context.lineWidth = 3;
+  context.strokeRect(qr.x + 10, qr.y + 10, qr.w - 20, qr.h - 20);
+
+  context.setLineDash([]);
+  context.fillStyle = "rgba(96, 111, 138, 0.20)";
+  context.font = `700 ${Math.max(16, Math.floor(Math.min(qr.w, qr.h) * 0.09))}px Arial, Helvetica, sans-serif`;
+  context.textAlign = "center";
+  context.textBaseline = "middle";
+  context.fillText("QR sẽ hiện ở đây", qr.x + qr.w / 2, qr.y + qr.h / 2);
+  context.restore();
+}
+
 function roundedRectPath(context, x, y, width, height, radius) {
   const r = Math.min(radius, width / 2, height / 2);
-
   context.beginPath();
   context.moveTo(x + r, y);
   context.lineTo(x + width - r, y);
   context.quadraticCurveTo(x + width, y, x + width, y + r);
   context.lineTo(x + width, y + height - r);
-  context.quadraticCurveTo(
-    x + width,
-    y + height,
-    x + width - r,
-    y + height
-  );
+  context.quadraticCurveTo(x + width, y + height, x + width - r, y + height);
   context.lineTo(x + r, y + height);
   context.quadraticCurveTo(x, y + height, x, y + height - r);
   context.lineTo(x, y + r);
@@ -278,7 +248,6 @@ function roundedRectPath(context, x, y, width, height, radius) {
 
 function drawLinkIcon(context, centerX, centerY, size) {
   const lineWidth = Math.max(2, size * 0.11);
-
   context.save();
   context.translate(centerX, centerY);
   context.rotate(-Math.PI / 4);
@@ -287,65 +256,35 @@ function drawLinkIcon(context, centerX, centerY, size) {
   context.lineCap = "round";
   context.lineJoin = "round";
 
-  roundedRectPath(
-    context,
-    -size * 0.47,
-    -size * 0.17,
-    size * 0.58,
-    size * 0.34,
-    size * 0.16
-  );
+  roundedRectPath(context, -size * 0.47, -size * 0.17, size * 0.58, size * 0.34, size * 0.16);
   context.stroke();
-
-  roundedRectPath(
-    context,
-    -size * 0.11,
-    -size * 0.17,
-    size * 0.58,
-    size * 0.34,
-    size * 0.16
-  );
+  roundedRectPath(context, -size * 0.11, -size * 0.17, size * 0.58, size * 0.34, size * 0.16);
   context.stroke();
-
   context.beginPath();
   context.moveTo(-size * 0.12, 0);
   context.lineTo(size * 0.12, 0);
   context.stroke();
-
   context.restore();
 }
 
 function ellipsizeText(context, text, maxWidth) {
-  if (context.measureText(text).width <= maxWidth) {
-    return text;
-  }
-
+  if (context.measureText(text).width <= maxWidth) return text;
   let result = text;
-  while (
-    result.length > 4 &&
-    context.measureText(`${result}…`).width > maxWidth
-  ) {
+  while (result.length > 4 && context.measureText(`${result}…`).width > maxWidth) {
     result = result.slice(0, -1);
   }
-
   return `${result}…`;
 }
 
 function drawLinkPill(context, pill, url) {
-  const radius = pill.h / 2;
-  const gradient = context.createLinearGradient(
-    pill.x,
-    pill.y,
-    pill.x + pill.w,
-    pill.y
-  );
+  if (!pill) return;
 
+  const radius = pill.h / 2;
+  const gradient = context.createLinearGradient(pill.x, pill.y, pill.x + pill.w, pill.y);
   gradient.addColorStop(0, pill.colorStart);
   gradient.addColorStop(1, pill.colorEnd);
 
   context.save();
-
-  // Che toàn bộ pill cũ rồi vẽ lại để không còn sót chữ link mẫu.
   roundedRectPath(context, pill.x, pill.y, pill.w, pill.h, radius);
   context.fillStyle = gradient;
   context.fill();
@@ -357,7 +296,6 @@ function drawLinkPill(context, pill, url) {
   const iconSize = pill.h * 0.55;
   const iconCenterX = pill.x + pill.h * 0.55;
   const iconCenterY = pill.y + pill.h / 2;
-
   drawLinkIcon(context, iconCenterX, iconCenterY, iconSize);
 
   const textX = pill.x + pill.h * 1.03;
@@ -368,24 +306,18 @@ function drawLinkPill(context, pill, url) {
 
   let fontSize = maxFontSize;
   context.font = `700 ${fontSize}px Arial, Helvetica, sans-serif`;
-
-  while (
-    fontSize > minFontSize &&
-    context.measureText(url).width > maxTextWidth
-  ) {
+  while (fontSize > minFontSize && context.measureText(url).width > maxTextWidth) {
     fontSize -= 1;
     context.font = `700 ${fontSize}px Arial, Helvetica, sans-serif`;
   }
 
   const displayText = ellipsizeText(context, url, maxTextWidth);
-
   context.fillStyle = "#ffffff";
   context.textAlign = "left";
   context.textBaseline = "middle";
   context.shadowColor = "rgba(0,0,0,0.18)";
   context.shadowBlur = 1;
   context.fillText(displayText, textX, pill.y + pill.h / 2 + 0.5);
-
   context.restore();
 }
 
@@ -396,7 +328,6 @@ async function buildCompositeImage(url, template) {
 
   outputCanvas.width = templateImage.naturalWidth;
   outputCanvas.height = templateImage.naturalHeight;
-
   context.fillStyle = "#ffffff";
   context.fillRect(0, 0, outputCanvas.width, outputCanvas.height);
   context.drawImage(templateImage, 0, 0);
@@ -408,35 +339,17 @@ async function buildCompositeImage(url, template) {
     errorCorrectionLevel: "M",
     margin: 2,
     width: qrRenderSize,
-    color: {
-      dark: "#000000",
-      light: "#ffffff"
-    }
+    color: { dark: "#000000", light: "#ffffff" }
   });
 
-  /*
-    Phủ trắng vùng QR cũ trước, sau đó đặt QR mới.
-    imageSmoothingEnabled = false giúp các ô QR giữ cạnh sắc nét.
-  */
   context.fillStyle = "#ffffff";
-  context.fillRect(
-    template.qr.x,
-    template.qr.y,
-    template.qr.w,
-    template.qr.h
-  );
+  context.fillRect(template.qr.x, template.qr.y, template.qr.w, template.qr.h);
 
   context.imageSmoothingEnabled = false;
-  context.drawImage(
-    qrCanvas,
-    template.qr.x,
-    template.qr.y,
-    template.qr.w,
-    template.qr.h
-  );
+  context.drawImage(qrCanvas, template.qr.x, template.qr.y, template.qr.w, template.qr.h);
   context.imageSmoothingEnabled = true;
 
-  if (elements.replaceTextCheckbox.checked) {
+  if (elements.replaceTextCheckbox.checked && template.pill) {
     drawLinkPill(context, template.pill, url);
   }
 
@@ -446,7 +359,6 @@ async function buildCompositeImage(url, template) {
 function copyCanvasToPreview(sourceCanvas) {
   const preview = elements.previewCanvas;
   const context = preview.getContext("2d");
-
   preview.width = sourceCanvas.width;
   preview.height = sourceCanvas.height;
   context.clearRect(0, 0, preview.width, preview.height);
@@ -456,11 +368,8 @@ function copyCanvasToPreview(sourceCanvas) {
 function canvasToBlob(canvas) {
   return new Promise((resolve, reject) => {
     canvas.toBlob((blob) => {
-      if (blob) {
-        resolve(blob);
-      } else {
-        reject(new Error("Không thể xuất ảnh PNG."));
-      }
+      if (blob) resolve(blob);
+      else reject(new Error("Không thể xuất ảnh PNG."));
     }, "image/png");
   });
 }
@@ -473,7 +382,6 @@ function setLoading(isLoading) {
 
 async function generateImage() {
   let url;
-
   try {
     url = normalizeUrl(elements.urlInput.value);
     elements.urlInput.value = url;
@@ -481,11 +389,7 @@ async function generateImage() {
     if (isShopeeUrl(url)) {
       setMessage(elements.urlMessage, "Link Shopee hợp lệ.", "success");
     } else {
-      setMessage(
-        elements.urlMessage,
-        "Link hợp lệ. Công cụ vẫn tạo QR dù đây không phải link Shopee.",
-        "warning"
-      );
+      setMessage(elements.urlMessage, "Link hợp lệ. Công cụ vẫn tạo QR dù đây không phải link Shopee.", "warning");
     }
   } catch (error) {
     setMessage(elements.urlMessage, error.message, "error");
@@ -507,21 +411,13 @@ async function generateImage() {
     state.lastGeneratedFilename = `ma-qr-mau-${template.id}.png`;
 
     elements.downloadButton.disabled = false;
-    setMessage(
-      elements.statusMessage,
-      `Đã tạo xong ${template.name}. Bạn có thể tải ảnh PNG.`,
-      "success"
-    );
+    setMessage(elements.statusMessage, `Đã tạo xong ${template.name}. Bạn có thể tải ảnh PNG.`, "success");
   } catch (error) {
     console.error(error);
     state.lastGeneratedBlob = null;
     state.lastGeneratedFilename = null;
     elements.downloadButton.disabled = true;
-    setMessage(
-      elements.statusMessage,
-      error?.message || "Có lỗi xảy ra khi tạo ảnh.",
-      "error"
-    );
+    setMessage(elements.statusMessage, error?.message || "Có lỗi xảy ra khi tạo ảnh.", "error");
   } finally {
     setLoading(false);
   }
@@ -529,42 +425,29 @@ async function generateImage() {
 
 function downloadGeneratedImage() {
   if (!state.lastGeneratedBlob || !state.lastGeneratedFilename) {
-    setMessage(
-      elements.statusMessage,
-      "Bạn cần tạo ảnh trước khi tải xuống.",
-      "warning"
-    );
+    setMessage(elements.statusMessage, "Bạn cần tạo ảnh trước khi tải xuống.", "warning");
     return;
   }
 
   const objectUrl = URL.createObjectURL(state.lastGeneratedBlob);
   const anchor = document.createElement("a");
-
   anchor.href = objectUrl;
   anchor.download = state.lastGeneratedFilename;
   document.body.appendChild(anchor);
   anchor.click();
   anchor.remove();
-
   setTimeout(() => URL.revokeObjectURL(objectUrl), 1000);
 }
 
 async function pasteFromClipboard() {
   try {
-    if (!navigator.clipboard?.readText) {
-      throw new Error("Trình duyệt không cho phép đọc clipboard tự động.");
-    }
-
+    if (!navigator.clipboard?.readText) throw new Error("Clipboard không hỗ trợ.");
     const text = await navigator.clipboard.readText();
     elements.urlInput.value = text.trim();
     elements.urlInput.focus();
     setMessage(elements.urlMessage, "Đã dán nội dung từ clipboard.", "success");
   } catch {
-    setMessage(
-      elements.urlMessage,
-      "Không thể dán tự động. Hãy nhấn Ctrl + V vào ô link.",
-      "warning"
-    );
+    setMessage(elements.urlMessage, "Không thể dán tự động. Hãy nhấn Ctrl + V vào ô link.", "warning");
     elements.urlInput.focus();
   }
 }
@@ -574,9 +457,7 @@ elements.downloadButton.addEventListener("click", downloadGeneratedImage);
 elements.pasteButton.addEventListener("click", pasteFromClipboard);
 
 elements.urlInput.addEventListener("keydown", (event) => {
-  if (event.key === "Enter") {
-    generateImage();
-  }
+  if (event.key === "Enter") generateImage();
 });
 
 elements.urlInput.addEventListener("input", () => {
@@ -590,11 +471,7 @@ elements.replaceTextCheckbox.addEventListener("change", () => {
   state.lastGeneratedBlob = null;
   state.lastGeneratedFilename = null;
   elements.downloadButton.disabled = true;
-  setMessage(
-    elements.statusMessage,
-    "Tùy chọn đã thay đổi. Hãy bấm “Tạo ảnh ngay” để cập nhật.",
-    "warning"
-  );
+  setMessage(elements.statusMessage, "Tùy chọn đã thay đổi. Hãy bấm “Tạo ảnh ngay” để cập nhật.", "warning");
 });
 
 async function initialize() {

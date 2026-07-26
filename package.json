@@ -1,7 +1,7 @@
 {
-  "name": "web-qr-6-mau-shopee",
+  "name": "web-qr-12-mau-shopee",
   "private": true,
-  "version": "1.0.0",
+  "version": "2.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
